@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>DevPost Booster</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="app-name">DevPost Booster</h1>
+      <p class="tagline">Show up. Say something. Keep building.</p>
+    </header>
+    <main>
+      <section class="controls">
+        <select name="category" id="category-select">
+          <option value="">Select a category</option>
+          <option value="learning-update">Learning Update</option>
+          <option value="frustration-real-talk">Frustration / Real Talk</option>
+          <option value="progress-milestone">Progress Milestone</option>
+          <option value="insight-tip">Insight / Tip</option>
+          <option value="mindset-shift">Mindset Shift</option>
+        </select>
+        <select name="tone" id="tone-select">
+          <option value="">Select a tone</option>
+          <option value="calm">Calm</option>
+          <option value="confident">Confident</option>
+          <option value="humble">Humble</option>
+          <option value="motivational">Motivational</option>
+        </select>
+        <button type="button">Generate Posts</button>
+      </section>
+      <section class="generated-posts">
+        <p></p>
+        <p></p>
+      </section>
+    </main>
+    <footer>
+      <p class="random-tip"></p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
