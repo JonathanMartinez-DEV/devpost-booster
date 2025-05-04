@@ -6,7 +6,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Karla:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -14,12 +20,16 @@
   </head>
   <body>
     <header>
-      <h1 class="app-name">DevPost Booster</h1>
-      <p class="tagline">Show up. Say something. Keep building.</p>
+      <h1 class="app-name">DevPost <span class="green">Booster</span></h1>
     </header>
     <main>
+      <section>
+        <h2>Generate a <span class="green">random post</span></h2>
+        <p class="tagline">Show up. Say something. Keep building.</p>
+      </section>
       <section class="controls">
-        <select name="category" id="category-select">
+        <select name="category" id="category-select" class="dropdown">
+          <button><selectedcontent></selectedcontent></button>
           <option value="">Select a category</option>
           <option value="learning-update">Learning Update</option>
           <option value="frustration-real-talk">Frustration / Real Talk</option>
@@ -27,7 +37,7 @@
           <option value="insight-tip">Insight / Tip</option>
           <option value="mindset-shift">Mindset Shift</option>
         </select>
-        <select name="tone" id="tone-select">
+        <select name="tone" id="tone-select" class="dropdown">
           <option value="">Select a tone</option>
           <option value="calm">Calm</option>
           <option value="confident">Confident</option>
@@ -37,8 +47,8 @@
         <button type="button">Generate Posts</button>
       </section>
       <section class="generated-posts">
-        <p></p>
-        <p></p>
+        <p id="random-post-one" class="random-post"></p>
+        <p id="random-post-two" class="random-post"></p>
       </section>
     </main>
     <footer>
