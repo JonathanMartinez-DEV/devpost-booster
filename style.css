@@ -81,12 +81,14 @@ select:open::picker-icon {
   border: none;
 }
 
-option:first-of-type {
+/* for some reason border radius makes visible a white background for some reason need to fix */
+/* option:first-of-type {
   border-radius: 8px 8px 0 0;
 }
+
 option:last-of-type {
   border-radius: 0 0 8px 8px;
-}
+} */
 
 option:not(option:last-of-type) {
   border-bottom: none;
@@ -109,7 +111,6 @@ button {
   font-size: 1rem;
   color: white;
   margin-right: 10px;
-  float: right;
 }
 
 button:hover {
@@ -124,14 +125,23 @@ button:hover {
 
 .generated-posts {
   padding: 35px 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .random-post {
   background-color: #273549;
-  width: 400px;
-  height: 200px;
-  display: inline-block;
+  min-width: 300px;
+  max-width: 350px;
+  min-height: 150px;
   margin: 0 24px;
   border-radius: 6px;
+  padding: 0 20px 20px 20px;
+  white-space: pre-line;
 }
+
+/* TODO: make responsive for all screen sizes not just my screen size
+    TODO: fix some styling issues with dynamic content
+*/
