@@ -345,45 +345,34 @@ const postIdeaOne = document.getElementById("random-post-one");
 const postIdeaTwo = document.getElementById("random-post-two");
 const generateBtn = document.getElementById("generate-btn");
 
-function getRandomNumber() {
-  return Math.floor(Math.random() * postLibrary.frustration.length);
+// create random index helper function
+function getRandomIndex(arr) {
+  return Math.floor(Math.random() * arr.length);
 }
 
+// map category values to library arrays
+const libraryMap = {
+  "learning-update": postLibrary.learningUpdate,
+  "frustration-real-talk": postLibrary.frustration,
+  "progress-milestone": postLibrary.progressMilestone,
+  "insight-tip": postLibrary.insight,
+  "mindset-shift": postLibrary.mindsetShift,
+};
+
+// create render function
 function renderPostIdea() {
-  let categoryValue = categorySelect.value;
+  let selectedCategory = libraryMap[categorySelect.value];
+  if (!selectedCategory) return;
 
-  let randomNumberOne = getRandomNumber();
-  let randomNumberTwo = getRandomNumber();
+  let indexOne = getRandomIndex(selectedCategory);
+  let indexTwo = getRandomIndex(selectedCategory);
 
-  while (randomNumberOne === randomNumberTwo) {
-    randomNumberOne = getRandomNumber();
+  while (indexOne === indexTwo) {
+    indexTwo = getRandomIndex(selectedCategory);
   }
 
-  switch (categoryValue) {
-    case "learning-update":
-      postIdeaOne.textContent = postLibrary.learningUpdate[randomNumberOne];
-      postIdeaTwo.textContent = postLibrary.learningUpdate[randomNumberTwo];
-      break;
-    case "frustration-real-talk":
-      postIdeaOne.textContent = postLibrary.frustration[randomNumberOne];
-      postIdeaTwo.textContent = postLibrary.frustration[randomNumberTwo];
-      break;
-    case "progress-milestone":
-      postIdeaOne.textContent = postLibrary.progressMilestone[randomNumberOne];
-      postIdeaTwo.textContent = postLibrary.progressMilestone[randomNumberTwo];
-      break;
-    case "insight-tip":
-      postIdeaOne.textContent = postLibrary.insight[randomNumberOne];
-      postIdeaTwo.textContent = postLibrary.insight[randomNumberTwo];
-      break;
-    case "mindset-shift":
-      postIdeaOne.textContent = postLibrary.mindsetShift[randomNumberOne];
-      postIdeaTwo.textContent = postLibrary.mindsetShift[randomNumberTwo];
-      break;
-
-    default:
-      break;
-  }
+  postIdeaOne.textContent = selectedCategory[indexOne];
+  postIdeaTwo.textContent = selectedCategory[indexTwo];
 }
 
 generateBtn.addEventListener("click", renderPostIdea);
